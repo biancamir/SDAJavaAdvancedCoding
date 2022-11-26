@@ -2,16 +2,16 @@ package com.sda.biancamiron.advanced.coding.oop.ex2;
 
 /**
  * * Create a Point2D class with fields double x, double y, getters, setters and constructor.
- *  * Then create a Circle class that will have a constructor:
- *  * Circle(Point2D center, Point2D point)
- *  *  The first parameter specifies the center of the circle, the second is any point on the circle.
- *  *  Based on these points, the Circle class is to determine:
- *  * • circle radius when calling double getRadius() method
- *  * • circle circumference when calling double getPerimeter() method
- *  * • circle area when calling double getArea() method
+ * * Then create a Circle class that will have a constructor:
+ * * Circle(Point2D center, Point2D point)
+ * *  The first parameter specifies the center of the circle, the second is any point on the circle.
+ * *  Based on these points, the Circle class is to determine:
+ * * • circle radius when calling double getRadius() method
+ * * • circle circumference when calling double getPerimeter() method
+ * * • circle area when calling double getArea() method
  */
 
-public class Point2D implements Movable{
+public class Point2D implements Movable {
     private double x;
     private double y;
 
@@ -22,8 +22,12 @@ public class Point2D implements Movable{
 
     @Override
     public void move(MoveDirection moveDirection) {
-        this.x=this.x + moveDirection.getX();
-        this.y=this.y + moveDirection.getY();
+        this.x = this.x + moveDirection.getX();
+        this.y = this.y + moveDirection.getY();
+    }
+
+    public double getDistanceFrom(Point2D anotherPoint) {
+        return Math.sqrt(Math.pow(anotherPoint.y - this.y, 2) + Math.pow(anotherPoint.x - this.x, 2));
     }
 
     public double getX() {
