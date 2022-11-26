@@ -1,4 +1,4 @@
-package com.sda.biancamiron.advanced.coding.oop.ex6;
+package com.sda.biancamiron.advanced.coding.oop.ex7;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,10 @@ import java.util.List;
  * The basket can store from 0 to 10 items.
  * When a user wants to remove an element at 0 items state or add an element at 10 items state,
  * throw the appropriate runtime exception (BasketFullException or BasketEmptyException).
+ *
+ * New
+ * Change the BasketFullException and
+ * BasketEmptyException exceptions from runtime exception type to checked exception type. Handle them.
  */
 
 public class Basket {
@@ -21,18 +25,26 @@ public class Basket {
     public Basket(int maxSize) {
         this.maxSize = maxSize;
     }
-    public void addToBasket(String product){
+    public void addToBasket(String product) throws BasketFullException{
         if(products.size()<maxSize){
             products.add(product);
         }else{
             throw new BasketFullException("Basket is full : " +maxSize);
         }
     }
-    public void removeFromBasket(String product){
+    public void removeFromBasket(String product) throws BasketEmptyException{
         if(!product.isEmpty()){
             products.remove(product);
         }else{
             throw new BasketEmptyException("Basket is empty ");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Basket{" +
+                "products=" + products +
+                ", maxSize=" + maxSize +
+                '}';
     }
 }
