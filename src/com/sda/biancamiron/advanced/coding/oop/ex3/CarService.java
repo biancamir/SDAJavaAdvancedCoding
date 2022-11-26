@@ -137,4 +137,11 @@ public class CarService {
                 })
                 .collect(Collectors.toList());
     }
+    //modelul din car de la tema*==> din stream de cars ma reduc la stream de modele
+    public List<String> getAllModels(){
+        return cars.stream()
+                .map(car -> car.getModel())
+                .distinct()                              //reduce duplicatele
+                .collect(Collectors.toList());
+    }
 }
