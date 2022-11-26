@@ -10,7 +10,7 @@ package com.sda.biancamiron.advanced.coding.oop.ex2;
  *   sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1)) radius
  */
 
-public class Circle {
+public class Circle implements  Movable{
    private Point2D center;
    private Point2D point;
 
@@ -18,6 +18,13 @@ public class Circle {
         this.center = center;
         this.point = point;
     }
+
+    @Override
+    public void move(MoveDirection moveDirection) {
+        center.move(moveDirection);
+        point.move(moveDirection);
+    }
+
     public double getRadius(){
         return Math.sqrt(Math.pow(point.getY()- center.getY(),2)+Math.pow(point.getX()- center.getX(),2));
     }
