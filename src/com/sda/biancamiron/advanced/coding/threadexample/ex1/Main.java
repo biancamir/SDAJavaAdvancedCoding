@@ -1,4 +1,4 @@
-package com.sda.biancamiron.advanced.coding.threadexample;
+package com.sda.biancamiron.advanced.coding.threadexample.ex1;
 
 import java.util.Random;
 
